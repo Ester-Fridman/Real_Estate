@@ -1,0 +1,792 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Meeting and Business API",
+    "version": "1.0.0",
+    "description": "API לניהול עסקים, משתמשים, שירותים, פגישות ואימות"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ], 
+  "paths": {
+    "/businesses": {
+      "get": {
+        "summary": "קבלת רשימת עסקים",
+        "responses": {
+          "200": {
+            "description": "רשימת עסקים",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Business"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "post": {
+        "summary": "יצירת עסק חדש",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "עסק נוצר בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Business"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "בקשה שגויה"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      }
+    },
+    "/businesses/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "קבלת עסק לפי מזהה",
+        "responses": {
+          "200": {
+            "description": "עסק קיים",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Business"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "עסק לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "put": {
+        "summary": "עדכון עסק לפי מזהה",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "עסק עודכן בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Business"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "עסק לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "delete": {
+        "summary": "מחיקת עסק לפי מזהה",
+        "responses": {
+          "200": {
+            "description": "עסק נמחק בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "עסק לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "קבלת רשימת משתמשים",
+        "responses": {
+          "200": {
+            "description": "רשימת משתמשים",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "post": {
+        "summary": "יצירת משתמש חדש",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "משתמש נוצר בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "בקשה שגויה"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "קבלת משתמש לפי מזהה",
+        "responses": {
+          "200": {
+            "description": "משתמש קיים",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "משתמש לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "put": {
+        "summary": "עדכון משתמש לפי מזהה",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "משתמש עודכן בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "משתמש לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "delete": {
+        "summary": "מחיקת משתמש לפי מזהה",
+        "responses": {
+          "200": {
+            "description": "משתמש נמחק בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "משתמש לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      }
+    },
+    "/services": {
+      "get": {
+        "summary": "קבלת רשימת שירותים",
+        "responses": {
+          "200": {
+            "description": "רשימת שירותים",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Service"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "post": {
+        "summary": "יצירת שירות חדש",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "שירות נוצר בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Service"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "בקשה שגויה"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      }
+    },
+    "/services/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "קבלת שירות לפי מזהה",
+        "responses": {
+          "200": {
+            "description": "שירות קיים",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Service"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "שירות לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "put": {
+        "summary": "עדכון שירות לפי מזהה",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "שירות עודכן בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Service"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "שירות לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "delete": {
+        "summary": "מחיקת שירות לפי מזהה",
+        "responses": {
+          "200": {
+            "description": "שירות נמחק בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "שירות לא נמצא"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      }
+    },
+    "/meetings": {
+      "get": {
+        "summary": "קבלת רשימת פגישות",
+        "responses": {
+          "200": {
+            "description": "רשימת פגישות",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Meeting"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "post": {
+        "summary": "יצירת פגישה חדשה",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MeetingInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "פגישה נוצרה בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Meeting"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "בקשה שגויה"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      }
+    },
+    "/meetings/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "summary": "קבלת פגישה לפי מזהה",
+        "responses": {
+          "200": {
+            "description": "פגישה קיימת",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Meeting"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "פגישה לא נמצאה"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "put": {
+        "summary": "עדכון פגישה לפי מזהה",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MeetingUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "פגישה עודכנה בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Meeting"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "פגישה לא נמצאה"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      },
+      "delete": {
+        "summary": "מחיקת פגישה לפי מזהה",
+        "responses": {
+          "200": {
+            "description": "פגישה נמחקה בהצלחה",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "פגישה לא נמצאה"
+          },
+          "500": {
+            "description": "שגיאה בשרת"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "התחברות משתמש",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "password"],
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "התחברות מוצלחת",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "אימות נכשל"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "agent",
+              "user"
+            ],
+            "default": "user"
+          }
+        },
+        "required": [
+          "fullName",
+          "email",
+          "password",
+          "phone",
+          "address",
+          "role"
+        ]
+      },
+      "Service": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "size": {
+            "type": "number"
+          },
+          "address": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "type",
+          "status",
+          "price",
+          "size",
+          "address",
+          "userId"
+        ]
+      },
+      "Business": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "area": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "workingHours": {
+            "type": "string"
+          },
+          "ownerId": {
+            "type": "string"
+          },
+          "isVerified": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "inactive",
+              "suspended"
+            ],
+            "default": "active"
+          }
+        },
+        "required": [
+          "name",
+          "area",
+          "phone",
+          "workingHours",
+          "ownerId"
+        ]
+      },
+      "Meeting": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "serviceId": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "confirmed",
+              "canceled"
+            ],
+            "default": "pending"
+          }
+        },
+        "required": [
+          "userId",
+          "serviceId",
+          "date",
+          "status"
+        ]
+      }
+    }
+  }
+}

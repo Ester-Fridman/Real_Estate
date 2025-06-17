@@ -1,0 +1,144 @@
+[2025-06-09T15:44:14.501] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-09T15:44:14.503] [ERROR] default - שגיאה בהתחברות למסד הנתונים
+[2025-06-09T15:46:46.451] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-09T15:48:42.947] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-09T15:57:37.998] [ERROR] default - Error creating user: Error: User validation failed: role: `admin` is not a valid enum value for path `role`.
+    at ValidationError.inspect (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\error\validation.js:52:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2304:40)
+    at Object.format (node:internal/util/inspect:2161:10)
+    at basicLayout (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>)
+    at sendLogEventToAppender (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\log4js\lib\log4js.js:42:21) {
+  errors: {
+    role: ValidatorError: `admin` is not a valid enum value for path `role`.
+        at validate (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1404:13)
+        at SchemaType.doValidate (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1388:7)
+        at C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\document.js:3096:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'enum',
+      path: 'role',
+      value: 'admin',
+      reason: undefined,
+      [Symbol(mongoose#validatorError)]: true
+    }
+  },
+  _message: 'User validation failed'
+}
+[2025-06-10T21:32:24.289] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-10T21:33:19.988] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-10T22:07:47.126] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-10T22:07:53.372] [ERROR] default - Error during login: ReferenceError: Cannot access 'password' before initialization
+    at C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\Controllers\userController.js:110:46
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-06-10T22:11:06.707] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-10T22:18:17.913] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-11T23:01:52.511] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-11T23:02:52.457] [ERROR] default - Error fetching user: CastError: Cast to ObjectId failed for value "swagger" (type string) at path "_id" for model "User"
+    at SchemaObjectId.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schema\objectId.js:251:11)
+    at SchemaType.applySetters (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1255:12)
+    at SchemaType.castForQuery (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1673:17)
+    at cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast.js:390:32)
+    at Query.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:5055:12)
+    at Query._castConditions (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2351:10)
+    at model.Query._findOne (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2674:8)
+    at model.Query.exec (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:4604:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\Controllers\userController.js:21:22 {
+  stringValue: '"swagger"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'swagger',
+  path: '_id',
+  reason: BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+      at new ObjectId (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\bson\lib\bson.cjs:2538:23)
+      at castObjectId (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at SchemaObjectId.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schema\objectId.js:249:12)
+      at SchemaType.applySetters (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1255:12)
+      at SchemaType.castForQuery (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1673:17)
+      at cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast.js:390:32)
+      at Query.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:5055:12)
+      at Query._castConditions (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2351:10)
+      at model.Query._findOne (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2674:8)
+      at model.Query.exec (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:4604:80),
+  valueType: 'string'
+}
+[2025-06-11T23:10:23.765] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-11T23:10:38.978] [ERROR] default - Error fetching user: CastError: Cast to ObjectId failed for value "swagger" (type string) at path "_id" for model "User"
+    at SchemaObjectId.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schema\objectId.js:251:11)
+    at SchemaType.applySetters (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1255:12)
+    at SchemaType.castForQuery (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1673:17)
+    at cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast.js:390:32)
+    at Query.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:5055:12)
+    at Query._castConditions (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2351:10)
+    at model.Query._findOne (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2674:8)
+    at model.Query.exec (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:4604:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\Controllers\userController.js:21:22 {
+  stringValue: '"swagger"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'swagger',
+  path: '_id',
+  reason: BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+      at new ObjectId (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\bson\lib\bson.cjs:2538:23)
+      at castObjectId (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at SchemaObjectId.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schema\objectId.js:249:12)
+      at SchemaType.applySetters (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1255:12)
+      at SchemaType.castForQuery (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1673:17)
+      at cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast.js:390:32)
+      at Query.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:5055:12)
+      at Query._castConditions (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2351:10)
+      at model.Query._findOne (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2674:8)
+      at model.Query.exec (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:4604:80),
+  valueType: 'string'
+}
+[2025-06-11T23:11:33.481] [WARN] default - Missing required fields for user creation
+[2025-06-11T23:13:53.163] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-11T23:14:02.235] [ERROR] default - Error fetching user: CastError: Cast to ObjectId failed for value "api-docs" (type string) at path "_id" for model "User"
+    at SchemaObjectId.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schema\objectId.js:251:11)
+    at SchemaType.applySetters (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1255:12)
+    at SchemaType.castForQuery (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1673:17)
+    at cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast.js:390:32)
+    at Query.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:5055:12)
+    at Query._castConditions (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2351:10)
+    at model.Query._findOne (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2674:8)
+    at model.Query.exec (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:4604:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\Controllers\userController.js:21:22 {
+  stringValue: '"api-docs"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'api-docs',
+  path: '_id',
+  reason: BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+      at new ObjectId (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\bson\lib\bson.cjs:2538:23)
+      at castObjectId (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at SchemaObjectId.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schema\objectId.js:249:12)
+      at SchemaType.applySetters (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1255:12)
+      at SchemaType.castForQuery (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\schemaType.js:1673:17)
+      at cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\cast.js:390:32)
+      at Query.cast (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:5055:12)
+      at Query._castConditions (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2351:10)
+      at model.Query._findOne (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:2674:8)
+      at model.Query.exec (C:\Users\user1\Desktop\תכנות\יד\Node.JS\finalProject-server\node_modules\mongoose\lib\query.js:4604:80),
+  valueType: 'string'
+}
+[2025-06-12T00:07:00.862] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-12T00:13:46.929] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-12T00:37:47.225] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-15T21:37:16.489] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-15T21:37:48.747] [WARN] default - Invalid Google token provided
+[2025-06-15T21:54:35.739] [WARN] default - Invalid Google token provided
+[2025-06-15T21:58:24.440] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-15T21:58:58.828] [WARN] default - Invalid Google token provided
+[2025-06-15T22:17:07.142] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-15T22:18:08.536] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-15T22:18:57.384] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-15T22:30:44.803] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-15T22:35:34.060] [INFO] default - המערכת עלתה בהצלחה
+[2025-06-15T22:37:12.555] [INFO] default - Google login successful for user: st0533127632@gmail.com
